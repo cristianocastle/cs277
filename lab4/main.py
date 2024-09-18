@@ -41,7 +41,7 @@ def move_player(player, dir, upper_bound):
         player[0] -= 1
     if dir == 'S':
         player[1] -= 1
-    if dir == 'D'
+    if dir == 'D':
         player[0] += 1
 
 
