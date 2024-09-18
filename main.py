@@ -17,7 +17,7 @@ def read_map():
         list2d.append(list)
     return list2d
 
-'''
+
 def display_map(map, player):
     pass
     map = open("shownmap.txt")
@@ -29,8 +29,8 @@ def display_map(map, player):
                 list.append(item)
         shownmap2d.append(list)
     return showmap2d
-    pass
-'''
+
+    
 def move_player(player, dir, upper_bound):
     pass 
 
