@@ -3,6 +3,12 @@
 # treasure hunt game
 
 def read_map():
+    """
+    Reads a map from a text file and converts it into a 2D list.
+
+    Returns:
+        map2d (list): A 2D list representing the map.
+    """
     hiddenmap = open("map.txt")
     map2d = []
     for row in hiddenmap:
@@ -15,6 +21,13 @@ def read_map():
 
 
 def display_map(map, player):
+    """
+    Displays the map in the console. The player's position is marked with 'P'.
+
+    Args:
+        map (list): A 2D list representing the map.
+        player (list): A list containing the player's current coordinates [row, column].
+    """    
     for i in range(len(map)):
         for j in range(len(map[i])):
             if i == player[0] and j == player[1]:
@@ -25,6 +38,14 @@ def display_map(map, player):
 
     
 def move_player(player, dir, upper_bound):
+    """
+    Moves the player in the specified direction if possible.
+
+    Args:
+        player (list): A list containing the player's current coordinates [row, column].
+        dir (str): The direction to move the player ('W' for up, 'A' for left, 'S' for down, 'D' for right).
+        upper_bound (int): The maximum valid index for the player's coordinates.
+    """
     if dir == 'W' and player[0] > 0:
         player[0] -= 1
     elif dir == 'A' and player[1] > 0:
@@ -38,6 +59,18 @@ def move_player(player, dir, upper_bound):
 
 
 def count_treasure_traps(map, player, upper_bound):
+    """
+    Counts the number of treasures and traps in the cells surrounding the player's current position.
+
+    Args:
+        map (list): A 2D list representing the map.
+        player (list): A list containing the player's current coordinates [row, column].
+        upper_bound (int): The maximum valid index for the player's coordinates.
+
+    Returns:
+        treasures (int): The number of treasures in the surrounding cells.
+        traps (int): The number of traps in the surrounding cells.
+    """
     treasures = 0
     traps = 0
     for i in range(max(0, player[0] - 1), min(upper_bound + 1, player[0] + 2)):
