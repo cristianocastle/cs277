@@ -2,31 +2,25 @@
 # sep 19, 2024
 # treasure hunt game
 
-import os
-
 def read_map():
-    script_dir = os.path.dirname(__file__)  # Get the directory of the script
-    file_path = os.path.join(script_dir, 'map.txt')  # Construct the full path to map.txt
-
-    try:
-        with open(file_path, 'r') as file:
-            map2d = []
-            for line in file:
-                row = [char for char in line.strip() if char]
-                map2d.append(row)
-        return map2d
-    except FileNotFoundError:
-        print(f"The file {file_path} does not exist.")
-        return None
+    hiddenmap = open("map.txt")
+    map2d = []
+    for row in hiddenmap:
+        list = []
+        for item in row:
+            if item != " " and item != '\n':
+                list.append(item)
+        map2d.append(list)
+    return map2d
 
 
 def display_map(map, player):
-    for i, row in enumerate(map):
-        for j, item in enumerate(row):
-            if [i, j] == player:
-                print('P', end=' ')
+    for i in range(len(map)):
+        for j in range(len(map[i])):
+            if i == player[0] and j == player[1]:
+                print("P", end = " ")
             else:
-                print(item, end=' ')
+                print(map[i][j], end = " ")
         print()
 
     
@@ -40,7 +34,7 @@ def move_player(player, dir, upper_bound):
     elif dir == 'D' and player[1] < upper_bound:
         player[1] += 1
     else:
-        print("Move out of bounds!")
+        print("You cannot move that direction.")
 
 
 def count_treasure_traps(map, player, upper_bound):
@@ -65,7 +59,7 @@ def main():
     
     while True:
         display_map(user_map, player)
-        move = input("Enter move (W/A/S/D), look around (L), or quit (Q): ").upper()
+        move = input("Enter Direction (WASD or L to look around, or Q to quit):").upper()
         
         if move in ['W', 'A', 'S', 'D']:
             move_player(player, move, upper_bound)
@@ -73,22 +67,24 @@ def main():
                 print("You found a treasure!")
                 user_map[player[0]][player[1]] = 'T'
                 treasures_found += 1
+                print(f"There are {7 - treasures_found} treasures remaining.")
                 if treasures_found == 7:
                     print("You found all treasures! You win!")
                     break
             elif map[player[0]][player[1]] == 'X':
-                print("You hit a trap! Game over!")
+                print("You were caught in a trap!")
+                print(f"You found {treasures_found} treasures.")
                 break
         elif move == 'L':
             treasures, traps = count_treasure_traps(map, player, upper_bound)
-            print(f"Treasures nearby: {treasures}, Traps nearby: {traps}")
+            print(f"You detect {treasures} treasures nearby.")
+            print(f"you detect {traps} traps nearby.")
             user_map[player[0]][player[1]] = str(traps)
         elif move == 'Q':
             print("Game quit!")
             break
         else:
             print("Invalid input!")
-    
     
 if __name__ == "__main__":
     main()
