@@ -1,7 +1,6 @@
 # cris padilla, Naithen Ramirez
-#
-
-
+# sep 19, 2024
+# treasure hunt game
 
 import os
 
@@ -19,6 +18,7 @@ def read_map():
     except FileNotFoundError:
         print(f"The file {file_path} does not exist.")
         return None
+
 
 def display_map(map, player):
     for i, row in enumerate(map):
