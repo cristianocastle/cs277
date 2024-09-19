@@ -3,14 +3,22 @@
 
 
 
-def read_map():
-    with open('map.txt', 'r') as file:
-        map2d = []
-        for line in file:
-            row = [char for char in line.strip() if char]
-            map2d.append(row)
-    return map2d
+import os
 
+def read_map():
+    script_dir = os.path.dirname(__file__)  # Get the directory of the script
+    file_path = os.path.join(script_dir, 'map.txt')  # Construct the full path to map.txt
+
+    try:
+        with open(file_path, 'r') as file:
+            map2d = []
+            for line in file:
+                row = [char for char in line.strip() if char]
+                map2d.append(row)
+        return map2d
+    except FileNotFoundError:
+        print(f"The file {file_path} does not exist.")
+        return None
 
 def display_map(map, player):
     for i, row in enumerate(map):
@@ -72,7 +80,7 @@ def main():
                 print("You hit a trap! Game over!")
                 break
         elif move == 'L':
-            treasures, traps = count_treasures_traps(map, player, upper_bound)
+            treasures, traps = count_treasure_traps(map, player, upper_bound)
             print(f"Treasures nearby: {treasures}, Traps nearby: {traps}")
             user_map[player[0]][player[1]] = str(traps)
         elif move == 'Q':
