@@ -83,42 +83,46 @@ def count_treasure_traps(map, player, upper_bound):
 
 
 def main():
-    map = read_map()
-    player = [0, 0]
-    upper_bound = 6
-    user_map = [['.' for _ in range(7)] for _ in range(7)]
-    treasures_found = 0
+    map = read_map() # read the map from the file
+    player = [0, 0] # player's initial position
+    upper_bound = 6 # maximum valid index for the player's coordinates
+    user_map = [['.' for _ in range(7)] for _ in range(7)] # user's map
+    treasures_found = 0 
 
-    while True:
+
+    while True: # start game loop
         display_map(user_map, player)
         move = input("Enter Direction (WASD or L to look around, or Q to quit):").upper()
         
         if move in ['W', 'A', 'S', 'D']:
             move_player(player, move, upper_bound)
-            if map[player[0]][player[1]] == 'T':
-                print("You found a treasure!")
-                user_map[player[0]][player[1]] = 'T'
-                treasures_found += 1
+            
+            if map[player[0]][player[1]] == 'T': # if the player finds a treasure
+                if user_map[player[0]][player[1]] != 'T': # if the treasure has not been found before
+                    print("You found a treasure!")
+                    user_map[player[0]][player[1]] = 'T'
+                    treasures_found += 1
                 print(f"There are {7 - treasures_found} treasures remaining.")
-                if treasures_found == 7:
+                if treasures_found == 7: # if all treasures have been found
                     print("You found all treasures! You win!")
                     break
-            elif map[player[0]][player[1]] == 'X':
+            elif map[player[0]][player[1]] == 'X': # if the player steps on a trap
                 print("You were caught in a trap!")
                 print(f"You found {treasures_found} treasures.")
                 break
-        elif move == 'L':
+        elif move == 'L': # look around
             treasures, traps = count_treasure_traps(map, player, upper_bound)
             print(f"You detect {treasures} treasures nearby.")
             print(f"you detect {traps} traps nearby.")
             
-            if map[player[0]][player[1]] != 'T':
+            if map[player[0]][player[1]] != 'T': # if the player is not standing on a treasure
                 user_map[player[0]][player[1]] = str(traps)
-        elif move == 'Q':
+        elif move == 'Q': # quit the game
             print("Game quit!")
             break
         else:
             print("Invalid input!")
+    
     
 if __name__ == "__main__":
     main()
