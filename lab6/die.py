@@ -1,13 +1,21 @@
+import random
 class Die:
     def __init__(self, sides= 6):
-        pass
+        self.sides = sides
+        self.value = self.roll()
+
     def roll(self):
-        pass
+        self.value = random.randomint(1,self.sides)
+        return self.value
+    
     def __str__(self):
-        pass
+        return str(self.value)
+    
     def __lt__(self,other):
-        pass
+        return self.value < other.value
+    
     def __eq__(self,other):
-        pass
+        return self.value == other.value
+    
     def __sub__(self,other):
-        pass
+        return self.value - other.value
