@@ -12,6 +12,7 @@ class Player(Die):
     def roll_dice(self):
         for d in self.dice:
             d.roll()
+        self.dice.sort()
    
     def has_pair(self):
         if self.dice[0] == self.dice[1] or self.dice[0] == self.dice[2] or self.dice[1] == self.dice[2]:
@@ -28,4 +29,4 @@ class Player(Die):
     def has_series(self):
         pass
     def __str__(self):
-        pass
+        return f"D1={self.dice[0]}, D2 = {self.dice[1]}, D3 = {self.dice[1]}"
