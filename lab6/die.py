@@ -1,11 +1,12 @@
 import random
+
 class Die:
     def __init__(self, sides= 6):
         self.sides = sides
         self.value = self.roll()
 
     def roll(self):
-        self.value = random.randomint(1,self.sides)
+        self.value = random.randint(1, self.sides)
         return self.value
     
     def __str__(self):

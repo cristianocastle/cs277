@@ -27,6 +27,9 @@ class Player(Die):
         else:
             return False
     def has_series(self):
-        pass
+        if (self.dice[1] - self.dice[0] == 1) and (self.dice[2] - self.dice[1] == 1):
+            self.points += 2
+            return True
+        return False
     def __str__(self):
-        return f"D1={self.dice[0]}, D2 = {self.dice[1]}, D3 = {self.dice[1]}"
+        return f"D1={self.dice[0]}, D2={self.dice[1]}, D3={self.dice[2]}"
