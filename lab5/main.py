@@ -2,7 +2,7 @@
 # Sep 26 , 2024 
 # This program is a task list that allows the user to add, display, postpone, and mark tasks as complete.
 
-import check_input
+import lab6.check_input as check_input
 from task import Task
 
 def main_menu(): # This function is used to display the main menu and return the user's choice.
