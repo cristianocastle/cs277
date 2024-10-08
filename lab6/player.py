@@ -69,3 +69,5 @@ class Player(Die):
             self.points += 2
             return True
         return False
+    def __str__(self):
+        return f"D1={self.dice[0]}, D2={self.dice[1]}, D3={self.dice[2]}"
