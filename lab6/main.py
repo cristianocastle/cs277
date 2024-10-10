@@ -1,6 +1,6 @@
 #Naithen Ramirez, cris padilla 
 # Oct 3 , 2024 
-# This program is a simple Yahtzee game that allows the user to take turns rolling dice and scoring points.
+# This program is a Yahtzee game that allows the user to take turns rolling dice and scoring points.
 
 from player import Player
 from check_input import get_yes_no

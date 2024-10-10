@@ -1,6 +1,6 @@
 # Naithen Ramirez, cris padilla 
 # Oct 10, 2024 
-# This program is a simple Caesar cipher program that allows the user to encrypt or decrypt a message using a shift value.
+# This program is a cipher program that allows the user to encrypt or decrypt a message.
 
 from cipher import Cipher  
 from caesar import CaesarCipher
