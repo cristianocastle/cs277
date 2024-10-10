@@ -1,4 +1,5 @@
 import string
+
 class Cipher:
     def __init__(self):
         self._alphabet = list(string.ascii_uppercase)
@@ -13,6 +14,7 @@ class Cipher:
             else:
                 _encrypted_message += char
         return _encrypted_message
+    
     def decrypt_message(self,message):
         message = message.upper()
         _decrypted_message = ""
@@ -22,9 +24,11 @@ class Cipher:
             else:
                 _decrypted_message += char
         return _decrypted_message
+    
     def _encrypt_letter(self, letter):
         index = self._alphabet.index(letter)
         return self._reverse_alphabet[index]
+    
     def _decrypt_letter(self,letter):
         index = self._reverse_alphabet.index(letter)
         return self._alphabet[index]
