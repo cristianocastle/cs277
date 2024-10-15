@@ -35,7 +35,7 @@ def main():
 
             try:  # Save encrypted message and shift value to file
                 with open('message.txt', 'w') as file:
-                    file.write(f"{shift}\n{encrypted_message}")
+                    file.write(f"{shift}\n{encrypted_message}") # type: ignore
                 print("Encrypted message saved to 'message.txt'.")
             except:
                 print("Error saving encrypted message.")
