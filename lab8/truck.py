@@ -1,6 +1,8 @@
 
+
 from vehicle import Vehicle
 import random
+
 class Truck(Vehicle):
     def __init__(self):
         super().__init__("Behemoth Truck", "T", 4, 8)

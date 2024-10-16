@@ -1,6 +1,8 @@
 
+
 from vehicle import Vehicle
 import random
+
 class Car(Vehicle): 
     
     def __init__(self):
