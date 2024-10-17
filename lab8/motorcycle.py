@@ -1,5 +1,3 @@
-
-
 from vehicle import Vehicle
 import random
 
