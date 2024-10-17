@@ -6,7 +6,7 @@ class Truck(Vehicle):
         super().__init__("Behemoth Truck", "T", 4, 8)
 
     def description_string(self):
-        return f"Car Name: {self._name}, Initial: {self._initial}, Speed Range: {self._min_speed}-{self._max_speed}, Energy: {self._energy}"
+        return f"Truck Name: {self._name}, Initial: {self._initial}, Speed Range: {self._min_speed}-{self._max_speed}, Energy: {self._energy}"
 
     
     def special_move(self, dist):
