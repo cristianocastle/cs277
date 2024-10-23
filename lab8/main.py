@@ -80,7 +80,7 @@ def main():
             elif action == 3:
                 result = player.special_move(dist_to_obstacle)
             
-            print(result)
+            print(result) # type: ignore
             
             if player.position >= len(track[player_choice]):
                 finished_vehicles.append(player)
@@ -106,7 +106,7 @@ def main():
                     result = opponent.slow(dist_to_obstacle)
                 elif action == 3:
                     result = opponent.special_move(dist_to_obstacle)
-                print(result)
+                print(result) # type: ignore
 
                 if opponent.position >= len(track[opponents.index(opponent) + (1 if opponents.index(opponent) >= player_choice else 0)]):
                     finished_vehicles.append(opponent)
