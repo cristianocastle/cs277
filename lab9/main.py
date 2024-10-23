@@ -27,10 +27,9 @@ def main():
             print(f"{i + 1}. {dragon.name}: {dragon.hp}")
             #TODO print the dragon's special attacks left
     
-        print("\nChoose a dragon to attack:")
-        
+    
         # Get the index of the dragon in the list
-        dragon_choice = get_int_range("Enter the number of the dragon you want to attack: ", 1, len(dragons)) - 1
+        dragon_choice = get_int_range("Choose a dragon to attack: ", 1, len(dragons)) - 1
         # Get the dragon object from the list
         chosen_dragon = dragons[dragon_choice]
 
