@@ -17,3 +17,7 @@ class Dragon(Entity,abc.ABC):
         return f"{self._name} smashes you with its tail for {dmg} damage!"
     def __str__(self):
         return f"{super().__str__()} (Special attacks left: {self._special_attacks})"
+
+    @abc.abstractmethod
+    def special_attack(self,opponent):
+        pass
