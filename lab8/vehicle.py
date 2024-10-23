@@ -61,7 +61,7 @@ class Vehicle(ABC):
                 self._position += spaces_moved
                 return f"{self._name} moved {spaces_moved} spaces."
             else:
-                self._position += dist - 1
+                self._position += (dist - 1)
                 return f"{self._name} moved {spaces_moved} spaces and crashed into the obstacle."
         return f"{self._name} does not have enough energy to move fast."
 
@@ -81,7 +81,7 @@ class Vehicle(ABC):
             self._position += half_speed
             return f"{self._name} moved {half_speed} spaces."
         else:
-            self._position += dist - 1
+            self._position += (dist - 1)
             return f"{self._name} moved {half_speed} spaces and went around the obstacle."
 
     def __str__(self):

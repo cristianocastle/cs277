@@ -37,11 +37,10 @@ class Truck(Vehicle):
         if self._energy >= 15:
             self._energy -= 15
             speed = random.randint(self._min_speed, self._max_speed) * 2
-
-            if dist <= speed:
-                self._position += dist  
+            if dist is not None and dist <= speed:
+                self._position += dist  # Moves the full distance if an obstacle is present
                 return f"{self._name} rammed through an obstacle and moved {dist} units!"
             else:
-                self._position += speed 
+                self._position += speed
                 return f"{self._name} rammed forward and moved {speed} units!"
         return f"{self._name} does not have enough energy for Ram!"

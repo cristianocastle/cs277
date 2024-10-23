@@ -1,3 +1,6 @@
+#Naithen Ramirez, Cris Padilla Castillo, Group 2
+#October 17, 2024
+# A racing game in which a car, motorcycle, and truck move across a track in which there is obstacles.
 import random
 from check_input import get_int_range
 from car import Car
@@ -51,12 +54,14 @@ def main():
             if i == player_choice:
                 for pos in previous_positions[player]:
                     lane_display[pos] = '*'
-                lane_display[player.position] = "P"
+                if player.position < len(lane_display):
+                    lane_display[player.position] = "P"
             else:
                 opponent = opponents[i - (1 if i > player_choice else 0)]
                 for pos in previous_positions[opponent]:
                     lane_display[pos] = '*'
-                lane_display[opponent.position] = opponent.initial
+                if opponent.position < len(lane_display):
+                    lane_display[opponent.position] = opponent.initial
             print(''.join(lane_display))
 
         # Player action
@@ -74,9 +79,9 @@ def main():
                 result = player.slow(dist_to_obstacle)
             elif action == 3:
                 result = player.special_move(dist_to_obstacle)
-
+            
             print(result)
-
+            
             if player.position >= len(track[player_choice]):
                 finished_vehicles.append(player)
                 print(f"{player.name} has finished the race!")
@@ -101,12 +106,11 @@ def main():
                     result = opponent.slow(dist_to_obstacle)
                 elif action == 3:
                     result = opponent.special_move(dist_to_obstacle)
-
                 print(result)
 
                 if opponent.position >= len(track[opponents.index(opponent) + (1 if opponents.index(opponent) >= player_choice else 0)]):
                     finished_vehicles.append(opponent)
-                    print(f"{opponent.name} has finished the race!")
+                    print(f"{opponent._name} has finished the race!")
 
     # Display the final results in order of finish
     print("\nRace Over! Final Results:")
