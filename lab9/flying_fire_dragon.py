@@ -3,7 +3,7 @@ from dragon import Dragon
 from flying import Flying
 from fire import Fire
 
-class FireDragon(Dragon, Flying, Fire):
+class FlyingFireDragon(Dragon, Flying, Fire):
     """
     A class representing a Fire Dragon that can fly and use fire attacks.
     

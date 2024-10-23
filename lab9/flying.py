@@ -17,6 +17,7 @@ class Flying:
         Returns:
         str: A description of the attack and the damage dealt, or a failure message.
         '''
+        
         if self.special_attacks > 0:
             damage = random.randint(4, 8)
             opponent.take_damage(damage)

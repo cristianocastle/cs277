@@ -2,7 +2,7 @@ import random
 from dragon import Dragon
 from flying import Flying
 
-class FireDragon(Dragon, Flying):
+class FlyingDragon(Dragon, Flying):
     """
     A class representing a Fire Dragon that can fly and perform special attacks.
     
