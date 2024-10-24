@@ -6,10 +6,9 @@ from flying_fire_dragon import FlyingFireDragon
 from hero import Hero
 
 def main():
-    print("What is your name challenger?")
-    name = input()
+    name = input(("What is your name challenger? "))
     
-    hero = Hero(name, 100)
+    hero = Hero(name, 50)
     dragons = [FireDragon(), FlyingDragon(), FlyingFireDragon()]
     
         
@@ -20,12 +19,10 @@ def main():
     while dragons and hero.hp > 0:
         
         
-        print(f"\n{hero.name}: {hero.hp}")
-        #TODO print hp / maxhp 
+        print(f"\n{hero.name}: {hero.hp}/{hero._max_hp}")
         
         for i, dragon in enumerate(dragons):
-            print(f"{i + 1}. {dragon.name}: {dragon.hp}")
-            #TODO print the dragon's special attacks left
+            print(f"{i + 1}. {dragon.name}: {dragon.hp}/{dragon._max_hp} \nSpecial attacks remaining: {dragon._special_attacks}")
     
     
         # Get the index of the dragon in the list
@@ -45,7 +42,6 @@ def main():
         
         print(attack_message)
 
-        #TODO add dragon attack
 
         # if the dragon has been defeated, remove it from the list
         if chosen_dragon.hp == 0:
