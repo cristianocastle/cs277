@@ -21,9 +21,9 @@ class Fire:
             damage = random.randint(5, 9)
             opponent.take_damage(damage)
             self.special_attacks -= 1
-            return f"The dragon blasts the hero with fire, dealing {damage} damage!"
+            return f"The {self._name} blasts the hero with fire, dealing {damage} damage!"
         else:
-            return "The dragon has no special attacks left and cannot use fireblast."
+            return f"The {self._name} has no special attacks left and cannot use fireblast."
 
     def fireball(self, opponent):
         '''
@@ -41,6 +41,6 @@ class Fire:
             damage = random.randint(4, 8)
             opponent.take_damage(damage)
             self.special_attacks -= 1
-            return f"The dragon spits a fireball at the hero, dealing {damage} damage!"
+            return f"The {self._name} spits a fireball at the hero, dealing {damage} damage!"
         else:
-            return "The dragon has no special attacks left and cannot use fireball."
+            return f"The {self._name} has no special attacks left and cannot use fireball."
