@@ -22,9 +22,9 @@ class Flying:
             damage = random.randint(4, 8)
             opponent.take_damage(damage)
             self.special_attacks -= 1
-            return f"The dragon swoops down and attacks the hero, dealing {damage} damage!"
+            return f"The {self._name} swoops down and attacks the hero, dealing {damage} damage!"
         else:
-            return "The dragon has no special attacks left and cannot use swoop."
+            return f"The {self._name} has no special attacks left and cannot use swoop."
 
     def windblast(self, opponent):
         '''
@@ -42,6 +42,6 @@ class Flying:
             damage = random.randint(3, 7)
             opponent.take_damage(damage)
             self.special_attacks -= 1
-            return f"The dragon blasts wind at the hero, dealing {damage} damage!"
+            return f"The {self._name} blasts wind at the hero, dealing {damage} damage!"
         else:
-            return "The dragon has no special attacks left and cannot use windblast."
+            return f"The {self._name} has no special attacks left and cannot use windblast."
