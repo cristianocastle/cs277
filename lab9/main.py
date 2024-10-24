@@ -39,7 +39,7 @@ def main():
             attack_message = hero.basic_attack(chosen_dragon)
         elif attack_choice == 2:
             attack_message = hero.special_attack(chosen_dragon)
-        
+        print()
         print(attack_message)
 
 
@@ -59,9 +59,9 @@ def main():
             print(attack_message)
 
     if hero.hp > 0:
-        print("Congratulations! You have defeated all the dragons.")
+        print("\nCongratulations! You have defeated all the dragons.")
     else:
-        print("You have been defeated by the dragons.")
+        print("\nYou have been defeated by the dragons.")
 
 if __name__ == "__main__":
     main()
