@@ -2,7 +2,7 @@
 
 class Enemy(): 
     
-    def __init__(self,)
+    def __init__(self,):
         pass
     
     def attack(self, entity):

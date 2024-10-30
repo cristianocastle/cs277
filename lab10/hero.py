@@ -1,13 +1,19 @@
+from entity import Entity
+import random
+from map import Map
 
 
-class Hero():
+class Hero(Entity):
     
     def __init__(self, name):
-        pass
-    
+        super().__init__(name, 100)
+        location = [0, 0]
+        
     def attack(self, entity):
-        pass
+        entity.take_damage(random.randint(2, 5))
+        return f"{self.name} attacks {entity.name}!"
     
-    def go_north/south/east/west(self):
-        pass
-    
+    def direction(self):
+        
+        #TODO requires map to be implemented
+        
