@@ -1,4 +1,7 @@
+
+
 class Map(): 
+    
     _instance = None
     _initialized = False
     def __new__(cls):
