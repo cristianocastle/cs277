@@ -1,5 +1,3 @@
-
-
 class Map():
     """
     A singleton class representing the game map.

@@ -2,7 +2,6 @@
 # Oct 31, 2024 
 # This program is a dungeon and monsters exploring game 
 
-import random
 from hero import Hero
 from enemy import Enemy
 from map import Map
@@ -14,7 +13,6 @@ def main():
     Prompts the user to enter their name, constructs the hero and map objects,
     and runs the game loop until the hero dies, finds the finish, or the user quits.
     """
-    # Prompt the user to enter their name
     hero_name = input("What is your name traveler? ")
     hero = Hero(hero_name)
     game_map = Map()
@@ -23,9 +21,8 @@ def main():
         # Display the current state of the map and hero
         print(game_map)
         print(hero)
-    
 
-        # Present the menu to the user
+        # Menu for the user to choose their next move
         print("1. Go North")
         print("2. Go South")
         print("3. Go East")
@@ -44,7 +41,6 @@ def main():
             hero.go_west()
         elif choice == '5':
             break
-
 
 
 if __name__ == "__main__":
