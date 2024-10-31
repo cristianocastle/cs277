@@ -1,3 +1,5 @@
+import os
+
 class Map():
     """
     A singleton class representing the game map.
@@ -30,11 +32,17 @@ class Map():
         """
         if not Map._initialized:
             self.map = []
-            with open("map1.txt", "r") as file:
-                for line in file:
-                    self.map.append(list(line.strip()))
-            self._revealed = [[False for _ in row] for row in self.map]
-            Map._initialized = True
+            file_path = os.path.join(os.path.dirname(__file__), "map1.txt")
+            if not os.path.exists(file_path):
+                print("Error: map1.txt not found.")
+                self.map = []
+                self._revealed = []
+            else:
+                with open(file_path, "r") as file:
+                    for line in file:
+                        self.map.append(list(line.strip()))
+                self._revealed = [[False for _ in row] for row in self.map]
+                Map._initialized = True
     
     def __getitem__(self, row):
         """
@@ -69,10 +77,11 @@ class Map():
         """
         map_display = ""
         hero_row, hero_col = loc
-        for i in range(5):  
-            for j in range(5):  
-                if (i, j) == (hero_row, hero_col):
-                    map_display += "* "  
+        
+        for i in range(5):
+            for j in range(5):
+                if (i,j) == (hero_row, hero_col):
+                    map_display += "* "
                 elif 0 <= i < len(self.map) and 0 <= j < len(self.map[i]):
                     if self._revealed[i][j]:
                         map_display += self.map[i][j] + " "
@@ -84,8 +93,21 @@ class Map():
         return map_display.strip()
     
     def reveal (self,loc):
+        """
+        Sets the value in the 2D revealed list at the specified location to True.
+
+        Parameters:
+        loc (tuple): The (row, column) location to reveal.
+        """
         row, col = loc
         self._revealed[row][col] = True
+        
     def remove_at_loc(self, loc):
+        """
+        Overwrites the character in the map list at the specified location with an 'n'.
+
+        Parameters:
+        loc (tuple): The (row, column) location to remove.
+        """
         row, col = loc
         self.map[row][col] = "n"

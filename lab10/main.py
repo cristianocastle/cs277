@@ -44,7 +44,7 @@ def main():
             print("You chose to quit the game. Goodbye!")
             break
         
-        if result != 'o':  
+        if result != 'o':   # type: ignore
             game_map.reveal((hero.location[0], hero.location[1]))
 
         # Encounter handling
@@ -53,7 +53,7 @@ def main():
         if encounter == 'm':  # Monster encounter
             enemy = Enemy()
             print(f"You encounter a {enemy.name}")
-            print(f"HP: {enemy.hp}/{enemy.max_hp}")
+            print(enemy)
 
             while enemy.hp > 0:
                 print(f"1. Attack {enemy.name}")

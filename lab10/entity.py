@@ -20,7 +20,7 @@ class Entity(abc.ABC):
             max_hp (int): The maximum health points of the entity.
         """
         self.name = name
-        self._max_hp = max_hp
+        self.max_hp = max_hp
         self.hp = max_hp  
 
     def take_damage(self, dmg):
@@ -38,7 +38,7 @@ class Entity(abc.ABC):
         """
         Restores the entity's health points to the maximum health points.
         """
-        self.hp = self._max_hp
+        self.hp = self.max_hp
 
     def __str__(self):
         """
@@ -47,7 +47,7 @@ class Entity(abc.ABC):
         Returns:
             str: A string representation of the entity.
         """
-        return f"{self.name}\n HP:{self.hp}/{self._max_hp}"
+        return f"{self.name}\n HP:{self.hp}/{self.max_hp}"
     
     @abstractmethod
     def attack(self, entity) -> str:
