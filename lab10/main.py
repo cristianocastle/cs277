@@ -33,24 +33,27 @@ def main():
 
         # Move the hero based on the user's choice
         if choice == 1:
-            result = hero.go_north()
+            position = hero.go_north()
         elif choice == 2:
-            result = hero.go_south()
+            position = hero.go_south()
         elif choice == 3:
-            result = hero.go_east()
+            position = hero.go_east()
         elif choice == 4:
-            result = hero.go_west()
+            position = hero.go_west()
         elif choice == 5:
             print("You chose to quit the game. Goodbye!")
             break
         
-        if result != 'o':   # type: ignore
-            game_map.reveal((hero.location[0], hero.location[1]))
+        # Reveal the map at the new location
+        game_map.reveal((hero.location[0], hero.location[1]))
 
-        # Encounter handling
-        encounter = game_map[hero.location[0]][hero.location[1]]
+        # if the hero is not out of bounds, check for encounters
+        if position != 'o':  # type: ignore
+            encounter = game_map[hero.location[0]][hero.location[1]]
+        else:
+            encounter = 'o'
         
-        if encounter == 'm':  # Monster encounter
+        if encounter == 'm':  
             enemy = Enemy()
             print(f"You encounter a {enemy.name}")
             print(enemy)
@@ -68,7 +71,7 @@ def main():
                         print(f"You have slain a {enemy.name}")
                         game_map.remove_at_loc((hero.location[0], hero.location[1]))
                         break  
-                    
+    
                     enemy_attack = enemy.attack(hero)
                     print(enemy_attack)
 
@@ -91,13 +94,16 @@ def main():
                     break
                 else:
                     print("Invalid choice!")
-        
+            
         elif encounter == 'o':
-            print("You cannot move in that direction.")
+            print('You can not go that way...')
+            
         elif encounter == 'n':
             print("This room is empty.")
+            
         elif encounter == 's':
             print("You are back at the start of the dungeon.")
+            
         elif encounter == 'i':
             if hero.hp == hero.max_hp:
                 print("You found a health potion, but you already have full health.")
@@ -105,6 +111,7 @@ def main():
                 print("You found a health potion and healed!")
                 hero.heal()
             game_map.remove_at_loc((hero.location[0], hero.location[1]))
+            
         elif encounter == 'f':
             print("Congratulations! You've found the exit and won the game!")
             break

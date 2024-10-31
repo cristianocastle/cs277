@@ -32,7 +32,7 @@ class Map():
         """
         if not Map._initialized:
             self.map = []
-            file_path = os.path.join(os.path.dirname(__file__), "map1.txt")
+            file_path = os.path.join(os.path.dirname(__file__), "map-1.txt")
             if not os.path.exists(file_path):
                 print("Error: map1.txt not found.")
                 self.map = []

@@ -79,7 +79,6 @@ class Hero(Entity):
     def go_west(self):
         """
         Moves the hero one step to the west if within map bounds.
-
         Returns:
             list or str: The new location if the move was successful, 'o' if out of bounds.
         """
