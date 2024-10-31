@@ -50,7 +50,7 @@ class Entity(abc.ABC):
         return f"{self.name}\n HP:{self.hp}/{self._max_hp}"
     
     @abstractmethod
-    def attack(self, entity):
+    def attack(self, entity) -> str:
         """
         Abstract method for attacking another entity. Must be implemented by subclasses.
 

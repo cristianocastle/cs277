@@ -5,7 +5,7 @@
 from hero import Hero
 from enemy import Enemy
 from map import Map
-from check_input import get_int
+from check_input import get_int_range
 
 def main():
     """
@@ -28,7 +28,7 @@ def main():
         print("3. Go East")
         print("4. Go West")
         print("5. Quit")
-        choice = get_int("Enter your choice: ", 1, 5)
+        choice = get_int_range("Enter your choice: ", 1, 5)
 
         # Move the hero based on the user's choice
         if choice == '1':
