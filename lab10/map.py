@@ -76,3 +76,16 @@ class Map():
                 elif 0 <= i < len(self.map) and 0 <= j < len(self.map[i]):
                     if self._revealed[i][j]:
                         map_display += self.map[i][j] + " "
+                    else:
+                        map_display += "x "
+                else:
+                    map_display += "x "
+            map_display += "\n"
+        return map_display.strip()
+    
+    def reveal (self,loc):
+        row, col = loc
+        self._revealed[row][col] = True
+    def remove_at_loc(self, loc):
+        row, col = loc
+        self.map[row][col] = "n"
