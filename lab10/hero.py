@@ -45,7 +45,7 @@ class Hero(Entity):
             list or str: The new location if the move was successful, 'o' if out of bounds.
         """
         if self.location[0] > 0:
-            self.location[0] -= 1
+            self.location = (self.location[0] - 1, self.location[1])
             return self.location
         else:
             return 'o'
@@ -58,7 +58,7 @@ class Hero(Entity):
             list or str: The new location if the move was successful, 'o' if out of bounds.
         """
         if self.location[0] < len(Map()) - 1:
-            self.location[0] += 1
+            self.location = (self.location[0] + 1, self.location[1])
             return self.location
         else:
             return 'o'
@@ -71,7 +71,7 @@ class Hero(Entity):
             list or str: The new location if the move was successful, 'o' if out of bounds.
         """
         if self.location[1] < len(Map()[0]) - 1:
-            self.location[1] += 1
+            self.location = (self.location[0], self.location[1] + 1)
             return self.location
         else:
             return 'o'
@@ -84,7 +84,7 @@ class Hero(Entity):
             list or str: The new location if the move was successful, 'o' if out of bounds.
         """
         if self.location[1] > 0:
-            self.location[1] -= 1
+            self.location = (self.location[0], self.location[1] - 1)
             return self.location
         else:
             return 'o'

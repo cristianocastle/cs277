@@ -47,7 +47,7 @@ class Entity(abc.ABC):
         Returns:
             str: A string representation of the entity.
         """
-        return f"{self.name}\n HP:{self.hp}/{self.max_hp}"
+        return f"{self.name}\nHP:{self.hp}/{self.max_hp}"
     
     @abstractmethod
     def attack(self, entity) -> str:
