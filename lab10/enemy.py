@@ -19,8 +19,8 @@ class Enemy(Entity):
             hp (int): The health points of the enemy, chosen randomly between 4 and 8.
         """
         name = random.choice(["Goblin", "Vampire", "Ghoul", "Skeleton", "Zombie"])
-        hp = random.randint(4, 8)
-        super().__init__(name, hp)
+        max_hp = random.randint(4, 8)
+        super().__init__(name, max_hp)
     
     def attack(self, entity):
         """
