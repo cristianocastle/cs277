@@ -69,10 +69,12 @@ class Map():
         """
         map_display = ""
         hero_row, hero_col = loc
-        for i in range(5):  
-            for j in range(5):  
-                if (i, j) == (hero_row, hero_col):
-                    map_display += "* "  
+
+
+        for i in range(5):
+            for j in range(5):
+                if (i,j) == (hero_row,hero_col):
+                    map_display += "* "
                 elif 0 <= i < len(self.map) and 0 <= j < len(self.map[i]):
                     if self._revealed[i][j]:
                         map_display += self.map[i][j] + " "
