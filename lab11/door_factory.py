@@ -1,3 +1,7 @@
 from abc import ABC, abstractmethod
 
-class Door(ABC):
+class DoorFactory(ABC):
+    
+    @abstractmethod
+    def create_door(self):
+        pass
