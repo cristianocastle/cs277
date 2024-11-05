@@ -15,7 +15,7 @@ class Door(ABC):
         pass
 
     @abstractmethod
-    def attempt(self):
+    def attempt(self,option):
         pass
 
     @abstractmethod
@@ -27,6 +27,6 @@ class Door(ABC):
         pass
 
     @abstractmethod
-    def successful(self):
+    def success(self):
         pass
     
