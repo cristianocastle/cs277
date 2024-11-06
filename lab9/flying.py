@@ -18,13 +18,13 @@ class Flying:
         str: A description of the attack and the damage dealt, or a failure message.
         '''
         
-        if self.special_attacks > 0:
+        if self.special_attacks > 0: # type: ignore
             damage = random.randint(4, 8)
             opponent.take_damage(damage)
-            self.special_attacks -= 1
-            return f"The {self._name} swoops down and attacks the hero, dealing {damage} damage!"
+            self.special_attacks -= 1 # type: ignore # type: ignore
+            return f"The {self._name} swoops down and attacks the hero, dealing {damage} damage!" # type: ignore # type: ignore
         else:
-            return f"The {self._name} has no special attacks left and cannot use swoop."
+            return f"The {self._name} has no special attacks left and cannot use swoop." # type: ignore
 
     def windblast(self, opponent):
         '''
@@ -38,10 +38,10 @@ class Flying:
         Returns:
         str: A description of the attack and the damage dealt, or a failure message.
         '''
-        if self.special_attacks > 0:
+        if self.special_attacks > 0: # type: ignore # type: ignore
             damage = random.randint(3, 7)
             opponent.take_damage(damage)
-            self.special_attacks -= 1
-            return f"The {self._name} blasts wind at the hero, dealing {damage} damage!"
+            self.special_attacks -= 1 # type: ignore
+            return f"The {self._name} blasts wind at the hero, dealing {damage} damage!" # type: ignore
         else:
-            return f"The {self._name} has no special attacks left and cannot use windblast."
+            return f"The {self._name} has no special attacks left and cannot use windblast." # type: ignore
