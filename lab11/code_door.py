@@ -9,8 +9,8 @@ class CodeDoor(Door):
         """
         Initializes the CodeDoor with a random 3-character solution consisting of 'X' or 'O'.
         """
-        self._solution = ''.join(random.choice(['X', 'O']) for _ in range(3))
-        self._input = ''
+        self._solution = [random.choice(['X', 'O']) for _ in range(3)]
+        self._input = ['X', 'X', 'X']
 
     def examine_door(self):
         """
@@ -49,25 +49,9 @@ class CodeDoor(Door):
         Returns:
             str: A message indicating the result of the attempt.
         """
-        self._input = option
-        solution_list = list(self._solution)
-        if self._input == '1':
-            if solution_list[0] == 'X':
-                solution_list[0] = 'O'
-            else:
-                solution_list[0] = 'X'
-        elif self._input == '2':
-            if solution_list[1] == 'X':
-                solution_list[1] = 'O'
-            else:
-                solution_list[1] = 'X'
-        elif self._input == '3':
-            if solution_list[2] == 'X':
-                solution_list[2] = 'O'
-            else:
-                solution_list[2] = 'X'
-        self._solution = ''.join(solution_list)
-        return f"You toggle key {self._input}."
+        index = option - 1
+        self._input[index] = 'O' if self._input[index] == 'X' else 'X'
+        return f"You toggle key {option}."
 
     def is_unlocked(self):
         """
@@ -85,8 +69,8 @@ class CodeDoor(Door):
         Returns:
             str: A clue for opening the door.
         """
-        clue = list(self._solution)
-        return clue
+        correct_chars = sum(1 for i in range(3) if self._input[i] == self._solution[i])
+        return f"{correct_chars} correct character(s)."
     
     def success(self):
         """

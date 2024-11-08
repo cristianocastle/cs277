@@ -7,10 +7,5 @@ import random
 class DifficultDoorFactory(DoorFactory):
     
     def create_door(self):
-        door_type = random.randint(1, 3)
-        if door_type == 1:
-            return ComboDoor()
-        elif door_type == 2:
-            return DeadboltDoor()
-        else:
-            return CodeDoor()
+        doors = [ComboDoor, DeadboltDoor, CodeDoor]
+        return random.choice(doors)()
