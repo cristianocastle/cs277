@@ -1,19 +1,18 @@
 from abc import ABC, abstractmethod
 
-
 class Plate(ABC):
     @abstractmethod
-    def description(self):
+    def description(self) -> str:
         pass
 
     @abstractmethod
-    def area(self):
+    def area(self) -> int:
         pass
 
     @abstractmethod
-    def weight(self):
+    def weight(self) -> int:
         pass
     
     @abstractmethod
-    def count(self):
+    def count(self) -> int:
         pass
