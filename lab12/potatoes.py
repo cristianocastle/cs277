@@ -1,14 +1,45 @@
 from plate_decorator import PlateDecorator
 
 class Potatoes(PlateDecorator):
-    def description(self):
+    """
+    A decorator class representing potatoes on a plate.
+
+    This class extends the PlateDecorator to add potatoes to the plate,
+    updating the plate's description, area, weight, and item count.
+    """
+
+    def description(self) -> str:
+        """
+        Get the updated description of the plate with potatoes added.
+
+        Returns:
+            str: The plate's description including "Potatoes".
+        """
         return super().description() + "Potatoes"
     
-    def area(self):
+    def area(self) -> int:
+        """
+        Calculate the remaining area on the plate after adding potatoes.
+
+        Returns:
+            int: The remaining area on the plate, reduced by 18 square units.
+        """
         return super().area() - 18
     
-    def weight(self):
+    def weight(self) -> int:
+        """
+        Calculate the remaining weight capacity of the plate after adding potatoes.
+
+        Returns:
+            int: The remaining weight capacity, reduced by 6 units.
+        """
         return super().weight() - 6
     
-    def count (self):
+    def count(self) -> int:
+        """
+        Get the updated count of items on the plate after adding potatoes.
+
+        Returns:
+            int: The total number of items on the plate, increased by 1.
+        """
         return super().count() + 1

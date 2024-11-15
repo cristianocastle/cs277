@@ -13,6 +13,18 @@ from turkey import Turkey
 
 
 def examine_plate(plate): 
+    """
+    Examine the current state of the plate and provide feedback.
+
+    This function displays the plate's contents, checks if the plate has failed
+    (overflowed or collapsed), and provides hints about remaining space and weight capacity.
+
+    Args:
+        plate (Plate): The current plate object to examine.
+
+    Returns:
+        bool: True if the plate has failed (overflowed or collapsed), False otherwise.
+    """
     # Display the plate's description
     print("\nCurrent plate contents:")
     print(plate.description())
@@ -52,6 +64,12 @@ def examine_plate(plate):
     return False
 
 def main():
+    """
+    Main function to run the Thanksgiving dinner plate simulator.
+
+    This function manages the main game loop, allowing the user to choose a plate type,
+    add food items, and monitors the plate's status until the user quits or the plate fails.
+    """
     # Present the user with a menu to choose the base plate type
     print("- Thanksgiving Dinner -")
     print("Serve yourself as much food as you")
