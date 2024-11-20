@@ -13,9 +13,26 @@ def main_menu():
     print("6. Search tasks by date")
     print("7. Save and quit")
     return get_int_range("Enter your choice: ", 1, 7)
-
 def get_date():
-    pass
+    """
+    Prompts the user to enter a date and returns it in MM/DD/YYYY format.
+    
+    Returns:
+        str: The date entered by the user in MM/DD/YYYY format.
+    """
+    month = get_int_range("Enter month: ", 1, 12)
+    day = get_int_range("Enter Day: ", 1, 31)
+    year = get_int_range("Enter Year: ", 2000, 2100)
+    
+    return f"{month:02d}/{day:02d}/{year}"
 
 def get_time():
-    pass
+    """
+    Prompts the user to enter a time and returns it in HH:MM format.
+    
+    Returns:
+        str: The time entered by the user in HH:MM format.
+    """
+    hour = get_int_range("Enter Hour: ", 0, 23)
+    minute= get_int_range("Enter minute: ", 0 , 59)
+    return f"{hour:02d}:{minute:02d}"
