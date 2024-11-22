@@ -25,7 +25,7 @@ class Task:
         Returns:
             str: A string in the format 'description,date,time'.
         """
-        return f"{self.desc} Due: {self.date} at {self.time}"
+        return f"{self.desc} - Due: {self.date} at {self.time}"
 
     def __repr__(self):
         """
