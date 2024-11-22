@@ -1,3 +1,4 @@
+from task import Task
 class Tasklist():
     def __init__(self):
         self.tasklist = []
@@ -5,9 +6,10 @@ class Tasklist():
         with open('tasklist.txt', 'r') as f:
             for line in f:
                 desc, date, time = line.strip().split(',')
-                self.tasklist.append((desc, date, time))
+                self.tasklist.append(Task(desc, date, time))
+        self.tasklist.sort()
     def add_task(self, desc, date, time):
-        new_task = (desc, date, time)
+        new_task = Task(desc, date, time)
         self.tasklist.append(new_task)
         self.tasklist.sort()
     
@@ -22,7 +24,7 @@ class Tasklist():
     def postpone_task(self, date, time):
         if self.tasklist:
             current_task = self.tasklist.pop(0)
-            new_task  = current_task.description, date, time
+            new_task  = Task(current_task.desc, date, time)
             self.tasklist.append(new_task)
             self.tasklist.sort()
     def save_file(self):
