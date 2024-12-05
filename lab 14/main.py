@@ -7,19 +7,23 @@ from puppy import Puppy
 
 def main():
     puppy = Puppy()
-
+    print("Congratualtion on your new puppy!")
     while True:
-        print("\nPuppy Simulator")
+        #Menu
+        print("\nWhat would you like to do?")
         print("1. Feed the puppy")
         print("2. Play with the puppy")
         print("3. Quit")
 
         choice = get_int_range("Enter choice: ", 1, 3)
 
+        #Eating State
         if choice == 1:
-            puppy.give_food()
+            print(puppy.give_food())
+        #Playing State
         elif choice == 2:
-            puppy.throw_ball()
+            print(puppy.throw_ball())
+        #Quit
         elif choice == 3:
             break
 
