@@ -1,9 +1,11 @@
+from state_asleep import StateAsleep
+
 class Puppy:
     def __init__(self):
         """
         Initializes the Puppy object with default state, feeds, and plays.
         """
-        self._state = "asleep"
+        self._state = StateAsleep()
         self._feeds = 0
         self._plays = 0
 
@@ -34,15 +36,13 @@ class Puppy:
         """
         Calls the play method for the current state of the puppy.
         """
-        if hasattr(self._state, 'play'):
-            self._state.play()
+        return self._state.play(self)
 
     def give_food(self):
         """
         Calls the feed method for the current state of the puppy.
         """
-        if hasattr(self._state, 'feed'):
-            self._state.feed()
+        return self._state.feed(self)
 
     def inc_feeds(self):
         """
