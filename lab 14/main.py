@@ -17,13 +17,10 @@ def main():
         choice = get_int_range("Enter choice: ", 1, 3)
 
         if choice == 1:
-            puppy.throw_ball()
-            print("You played with the puppy!")
-        elif choice == 2:
             puppy.give_food()
-            print("You fed the puppy!")
+        elif choice == 2:
+            puppy.throw_ball()
         elif choice == 3:
-            print("Goodbye!")
             break
 
 if __name__ == "__main__":
