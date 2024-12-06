@@ -1,6 +1,10 @@
 from state_asleep import StateAsleep
 
 class Puppy:
+    """
+    Represents a puppy with various states and actions.
+    """
+    
     def __init__(self):
         """
         Initializes the Puppy object with default state, feeds, and plays.

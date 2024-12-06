@@ -1,6 +1,10 @@
 from abc import ABC, abstractmethod
 
 class PuppyState(ABC):
+    """
+    Abstract base class representing the state of a puppy.
+    """
+
     @abstractmethod
     def feed(self, puppy):
         """

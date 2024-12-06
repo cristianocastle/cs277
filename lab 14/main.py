@@ -7,7 +7,8 @@ from puppy import Puppy
 
 def main():
     puppy = Puppy()
-    print("Congratualtion on your new puppy!")
+    print("Congratulations on your new puppy!")
+
     while True:
         #Menu
         print("\nWhat would you like to do?")
